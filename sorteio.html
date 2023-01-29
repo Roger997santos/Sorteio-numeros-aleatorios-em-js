@@ -1,0 +1,70 @@
+<meta charset="UTF-8">
+
+<script>
+
+function sorteia(defineNumeroMaximo) {
+  
+  while (true) {
+      
+    var sorteado = Math.round(Math.random() * 100);
+    
+    if (sorteado <= defineNumeroMaximo){
+      
+      if(sorteado > 0){
+        
+        break;
+      }
+    } 
+  }
+  return sorteado
+}
+
+function verifica(array,gerado){
+
+var quandiaElemento = array.length;
+var achouIgualdade = false;
+var posicao = 0;
+
+while(quandiaElemento > posicao){
+
+  if(array[posicao] == gerado){
+    var achouIgualdade = true;
+    break;
+  }else{
+    posicao++;
+    var achouIgualdade = false;
+  }
+
+}
+return achouIgualdade
+}
+
+function geraNumeros(quantidade){
+  
+  var numeros = [];
+  var contador = 0;
+    
+  while(contador < quantidade){
+    
+    var gerado = sorteia(limiteNumerico);
+    var verificado = verifica(numeros,gerado);
+    
+    if (verificado != true){
+
+      numeros.push(gerado);
+      contador++;
+    }    
+  }
+  return numeros  
+}
+
+
+var limiteNumerico = 25;
+var quantidadeNumerosSorteado = 15;
+var numero = geraNumeros(quantidadeNumerosSorteado);
+
+document.write(numero);
+
+
+</script>
+
